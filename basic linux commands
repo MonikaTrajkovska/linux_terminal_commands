@@ -1,0 +1,77 @@
+ls -l - gives you detailed info about the current directory 
+ls -a - shows you hidden files (ex.configuration files) 
+ls -la -shows all files (hidden one also ) with all details 
+grep button <name of the file> =-- will search for the word button in that file 
+diff <name of file> <name of file> -will give the difference between those files 
+info <word ex.echo> - gives informations abotu that command 
+ls <name of file -copy names on evrything on that directory 
+pwd <<name of file -overwite at the end the file 
+
+Permissions
+-rw-rw-r--- this is permission in linux which means that this is file
+drwxrwxr-x this means that this is folder(directory)
+The characters means: 
+
+r = read permission
+w = write permission
+x = execute permission
+- = no permission
+
+The first part of the code is 'rw-'. This suggests that the owner 'Home' can:
+Read the file
+Write or edit the file
+
+The second part is 'rw-'. It for the user group 'Home' and group-members can:
+Read the file
+Write or edit the file
+
+The third part is for the world which means any user. It says 'r--'. This means the user can only:
+Read the file
+Changing permissions 
+
+The various owners are represented as -
+
+User Denotations
+u	user/owner
+g	group
+o	other
+a	all
+To change permission we use command
+*** chmod permissions filename*** ex. chmod o+w Bacon
+to remove permission we use - sing .ex chmod o-w Bacon
+
+* chmod 754 Bacon 
+We have also numbers that means the same as permissions.Wew have:
+4 stands for "read"
+2 stands for "write"
+1 stands for "execute"
+0 sands for "no permissions
+
+We could combine this numbers (permsisions ).No. 7 means that can write, execute,read
+but don not forget that 7 is user, 5 is group and 4 is other.So in this ex. user can write,read and execute, group can read and execute and other can only read
+
+* Verify files using checksum
+When we want to verify the file that we downloaded from net is it the same that we need we use checksum or grep 
+ex. number of file1 | grep number of file2
+     muber of file1 cksum number of file2
+     
+* Compress / Extract files
+gzip <name of the file> - compress the file
+gunzip <name of the file- decompress the file 
+When we have many large files and one to compress in one single folder we use 
+tar cvf <name.tar> <file1> <file2> ex tar cvf Bucky.tar Pizza Cocacola
+* To extract from folder that is compress we use 
+tar xvf <name.tar> ex tar xvf Bucky.tar 
+
+*Install software with apt get 
+sudo apt-get install java - we install java or other software
+to run that(shell script) we use
+bash java.sh
+
+*Users 
+sudo useradd ading user ex sudo useradd Eva 
+sudo userdel name-deliting user
+cat etc/passwd- listing all users
+sudo useradd -m -s /bin/bash -c "test user" test - "m" create home folder for the user , "s" will tell what will be using the user (shell) , "m
+
+

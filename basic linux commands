@@ -1,3 +1,13 @@
+mkdir -p file1/file2/file3 - pravi tri filderi eden vo drug 
+rm -rf file1- gi brise site tri folderi 
+ se proveruva so ls -F -vidot na folderot:
+ @- deka e link 
+ / deka e vo directory 
+ * - executable 
+ ls -t List files by time
+ ls -r Reverse order
+ ls -latrLong listing including all filesreverse sorted by time.
+
 ls -l - gives you detailed info about the current directory 
 ls -a - shows you hidden files (ex.configuration files) 
 ls -la -shows all files (hidden one also ) with all details 
@@ -49,6 +59,12 @@ We have also numbers that means the same as permissions.Wew have:
 
 We could combine this numbers (permsisions ).No. 7 means that can write, execute,read
 but don not forget that 7 is user, 5 is group and 4 is other.So in this ex. user can write,read and execute, group can read and execute and other can only read
+sudo chown <username> <filename> change the ownership of the file
+sudo chown <username:groupname> <filename> change the ownership of the file to other group 
+
+id -Gn - gives info in which group the user belongs 
+groups <name> - gives info in which group the user belongs 
+chgrp <name of the group> <file name> changes the group
 
 * Verify files using checksum
 When we want to verify the file that we downloaded from net is it the same that we need we use checksum or grep 
@@ -71,7 +87,31 @@ bash java.sh
 *Users 
 sudo useradd ading user ex sudo useradd Eva 
 sudo userdel name-deliting user
-cat etc/passwd- listing all users
-sudo useradd -m -s /bin/bash -c "test user" test - "m" create home folder for the user , "s" will tell what will be using the user (shell) , "m
+cat /etc/passwd- listing all users
+sudo useradd -m -s /bin/bash -c "test user" test - "m" create home folder for the user , "s" will tell what will be using the user (shell) , "c" stands for message and at the end is the username
+sudo passwd name changes the pass of the user
+su name - login as that user 
+exit - to exit as that user 
+cat /etc/group list all the groups 
+sudo usermod -aG sudo test-  ** a is for adding group membership. This means leave all membership how they are and add this hew membership 
 
+Create a group and membership
+sudo addgroup name  add new group
+sudo usermod -aG <nameofthegroup> <nameoftheuser> add that user to the group we specify 
+sudo groupdel name delete the group
+Attribute of files
+lsattr- list files attribute 
+sudo chattr  +i name of the file = this makes files imutable ,we cannot change it (to write in it)
+sudo nano <filename> we can edit directly on the file 
+head <filename> gives first 10 lines of the file
+head -2 <filename> gives the first 2 lines in the file 
+tail <filename> gives last 10 lines of the file
+last -2 <filename> gives the last 2 lines in the file 
 
+***file system*** 
+ext4
+stat <filename> tells evrything about the file including inode number 
+sync     forces all data in cache to be written on the disk
+sudo fsck  check siystem integrity 
+sudo tune2fs -m 0 <path of the drive>  to tweak filesystem parametars and adjust reserved space for the system 
+e4defrag to defragment the filesystem 

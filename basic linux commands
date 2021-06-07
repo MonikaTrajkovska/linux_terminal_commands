@@ -78,11 +78,14 @@ ex. number of file1 | grep number of file2
 * Compress / Extract files**
 gzip <name of the file> - compress the file
 gunzip <name of the file- decompress the file 
+bzip2 <filename> 
 When we have many large files and one to compress in one single folder we use 
 tar cvf <name.tar> <file1> <file2> ex tar cvf Bucky.tar Pizza Cocacola
 tar -tf name.tar ni kazuva koi fajlovi se gi ima vo ovoj kompresiran folder 
 * To extract from folder that is compress we use 
 tar xvf <name.tar> ex tar xvf Bucky.tar 
+zip files.zip file1.doc to zip falies
+unzip -l  file.zip to unzip files 
 
 
 ****************

@@ -1,3 +1,5 @@
+***BASIC COMMANDS***
+
 mkdir -p file1/file2/file3 - pravi tri filderi eden vo drug 
 rm -rf file1- gi brise site tri folderi 
  se proveruva so ls -F -vidot na folderot:
@@ -17,7 +19,7 @@ info <word ex.echo> - gives informations abotu that command
 ls <name of file -copy names on evrything on that directory 
 pwd <<name of file -overwite at the end the file 
 
-Permissions
+***PERMISSIONS***
 -rw-rw-r--- this is permission in linux which means that this is file
 drwxrwxr-x this means that this is folder(directory)
 The characters means: 
@@ -37,11 +39,12 @@ Write or edit the file
 
 The third part is for the world which means any user. It says 'r--'. This means the user can only:
 Read the file
-Changing permissions 
+
+----Changing permissions---- 
 
 The various owners are represented as -
 
-User Denotations
+***USER DETONATIONS***
 u	user/owner
 g	group
 o	other
@@ -65,26 +68,30 @@ sudo chown <username:groupname> <filename> change the ownership of the file to o
 id -Gn - gives info in which group the user belongs 
 groups <name> - gives info in which group the user belongs 
 chgrp <name of the group> <file name> changes the group
-
-* Verify files using checksum
+*****************
+*** Verify files using checksum****
 When we want to verify the file that we downloaded from net is it the same that we need we use checksum or grep 
 ex. number of file1 | grep number of file2
      muber of file1 cksum number of file2
      
-* Compress / Extract files
+  **********************   
+* Compress / Extract files**
 gzip <name of the file> - compress the file
 gunzip <name of the file- decompress the file 
 When we have many large files and one to compress in one single folder we use 
 tar cvf <name.tar> <file1> <file2> ex tar cvf Bucky.tar Pizza Cocacola
+tar -tf name.tar ni kazuva koi fajlovi se gi ima vo ovoj kompresiran folder 
 * To extract from folder that is compress we use 
 tar xvf <name.tar> ex tar xvf Bucky.tar 
 
-*Install software with apt get 
+
+****************
+*Install software with apt get **
 sudo apt-get install java - we install java or other software
 to run that(shell script) we use
 bash java.sh
 
-*Users 
+****Users ***
 sudo useradd ading user ex sudo useradd Eva 
 sudo userdel name-deliting user
 cat /etc/passwd- listing all users
@@ -95,11 +102,15 @@ exit - to exit as that user
 cat /etc/group list all the groups 
 sudo usermod -aG sudo test-  ** a is for adding group membership. This means leave all membership how they are and add this hew membership 
 
-Create a group and membership
+*********
+**Create a group and membership***
+
 sudo addgroup name  add new group
 sudo usermod -aG <nameofthegroup> <nameoftheuser> add that user to the group we specify 
 sudo groupdel name delete the group
-Attribute of files
+
+*******
+***Attribute of files****
 lsattr- list files attribute 
 sudo chattr  +i name of the file = this makes files imutable ,we cannot change it (to write in it)
 sudo nano <filename> we can edit directly on the file 
@@ -115,3 +126,69 @@ sync     forces all data in cache to be written on the disk
 sudo fsck  check siystem integrity 
 sudo tune2fs -m 0 <path of the drive>  to tweak filesystem parametars and adjust reserved space for the system 
 e4defrag to defragment the filesystem 
+file <nameofthefile> gives info about the type of the file 
+
+*****************
+**wildcards** Commands can use wildcards to perform actions on more than one file at a time, or to find part of a phrase in a text file.
+
+ls * listing all files/folders in that directory
+ls D* lisiting everyting that has letter D
+ls *.txt listing everything that has .txt extension
+also we can use ? but matches one places and [] to spicify how to be filtered the files ex. ls file[1-9ABC0].txt this will show files that have included in the name numbers from 0-1 and ABC0
+mkdir {jan,feb,mart}_{2017,2018,2019} ova ke napravi folderi jan2017,jan2018,jan2019, febr2017 ...
+touch {jan,feb,mart}_{2017,2018,2019}/file{1..100} ke napravi vo sekoj folder file od 1 do 100
+touch file{1..4}.txt pravi fajlovi od 1 do 4
+
+rm *.txt brise fajlovsi so sodrzat txt
+rm file* brise fajlovi sto go imaat imeto file
+rm *2* brise fajlovi sto imaat 2 vo imeto 
+rm *[2,3}* brise fajlovi sto sodrzat vo imeto 2 i 3
+rm -ri <fildername> te prasuva dali da izbrise
+rmdir <nameoffolder>/* brise prazni folderi
+cp <file> <file1> se kopira se od ovoj fajl vo fajl 1
+cp <file> <folder1> ke se kopira file vo folder1
+cp -r <folder>/ <folder1> ke se iskopira cel folder vo folder1
+mv <oldname> <newname> go menuva imeto na fajlot/folderot 
+mv <newfolder>/ ~Documents go prefrla folderot fvo documents
+locate command searches for database and ruturn a list of files
+locate *.conf -gi lista site fajlovi sto imaat conf 
+locate -i --limit 3 *.conf ke ni dade samo 3 fajla sto imaat conf 
+locate -S dava informacii za bazata 
+locate -S > ~/Desktop/database.txt ni pravi fajl so podatoci za bazata na Desktop
+locate find.txt ni kazuva kade tocno se naoga toj fajl dokolku ne raboti prvo pravime sudo updatedb
+
+find command.txt
+ find /etc lista se vo sistemot sto ima vo etc 
+ find . -maxdepth 1 ke prebara vo toj directory eden level samo 
+ find . -type f lista samo fajlovi 
+ find . -type d lista samo folderi 
+ find . -name "File.txt" prebaruvame po ime i tocno ni kazuva kade se naoga fajlot (ako dademe -iname ke moze da prebarame i case sensitiv na pr. .TXT)
+ sudo find / -type f -size +100k ke gi lisat site fajlovi vo sistemot sto se pogolemi od 100k
+ sudo find / -type f -size +100k -o -100k '-o' znaci "or" dokolku go nema znaci "i"
+ sudo find / -type f -size +100k -size -5MB  -exec cp {} ~/Desktop/copy\ ke gi kopira site fajlovi vo foldeort na desktop sto se vika copy , no mesto -exec moze da stavime "-ok" i ke ne prasuva za sekoj fajl dali da se kopira
+ touch haystack/folder$(shuf -i  1-500 -n 1)/needle.txt ke napravi vo eden od folderite fajl so ime needle.txt
+ find haystack/ -type f -name "needle.txt" ke go najde fajlot needle
+ 
+ view files
+ cat file1 file 1 > file3.txt se sto e vnatre vo ovie dva fajla ke go stavi vo file 3, no tac command pravi reverse verticcaly  toa znaci prvata linija od tekstot stanuva posledna
+ cat file[1-5] | rev pravi reverse horizontaly isto vaka se pisuva i za tac command kako ovoj primer samo mesto rev se stava tac
+ cat less file.txt dava mal del od tekstot na fajlot 
+ find | less ke mozes polesno da prebaras 
+ find | head -n 5 ni gi dava prvite 5 reda od tekstot 
+ **sorting***
+ sort file.txt go sortira tekstot po azbuzen red
+ sort -r file.txt gi sortira vo reverse version ( posledno e prvo ) 
+ sort -n number.txt gi sortira numericki po redosled 
+ sort -u number.txt | less ke gi dade site broevi od 1 do 9 no samo po ednas ne i ako se povtoruvaat
+ ls -l  /etc | head  -n 20 | sort -k 5n gi sortira prvite 20 reda od folderot /etc, odnosno gi sortira spored kolona 5 po redosled
+ ls -lh  /etc | head  -n 20 | sort -k 5h ovaa verzija gi pravi human readable odnosno pokazuva KB,MB etc
+ ls -l  /etc | head  -n 20 | sort -k 5M gi soritra po mesec 
+ 
+ ***searching file content***
+ grep e file.txt ke gi dade site zborcinja sto sodrzat "e" bukvata
+ grep -v e file.txt ke gi dade site zborcinja sto ne sodzrat "e"
+ ls hello / | grep hello.txt - vo folderot hello ke go najde samo fajlot hello.txt 
+ howw to list proccess 
+ kolku e optereten sistmeot 
+ memorija 
+ 

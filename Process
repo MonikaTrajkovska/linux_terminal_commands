@@ -44,3 +44,12 @@ ctl+Z pauzed the proccess
 kill 5049 (this PID) kill the process
 kill -STOP 1234(pid) will pauze the process
 kill -CONT 1234(pid) will kill the process
+
+
+memory 
+cat /proc/meminfo  ---  a virtual file that reports the amount of available and used memory
+free ----represents the used/available memory and the swap memory figures in kilobytes
+vmstat ----provides general information about processes, memory, paging, block IO, traps, and CPU activity
+
+htop /top is the same command 
+sudo dmidecode    ---find out hardware information about the installed RAM

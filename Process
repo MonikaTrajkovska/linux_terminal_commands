@@ -1,0 +1,46 @@
+Listing Processes 
+Fields described by ps are described as: 
+
+UID: User ID that this process belongs to (the person running it) 
+PID: Process ID 
+PPID: Parent process ID (the ID of the process that started it) 
+C: CPU utilization of process 
+STIME: Process start time 
+TTY: Terminal type associated with the process 
+TIME: CPU time is taken by the process 
+CMD: The command that started this process 
+There are other options which can be used along with ps command : 
+
+------ ps --------- display proccess status 
+-a: Shows information about all users 
+-x: Shows information about processes without terminals 
+-u: Shows additional information like -f option 
+-e: Displays extended information 
+ps -p 1530 listing the process with that id 
+ps -f full format listing 
+ps -ef for full listing 
+ps -ax gives all procceses that run in the background 
+
+** pidof command to find the ID of a process
+# pidof systemd
+# pidof top
+# pidof httpd
+-to find parent and child process 
+ echo $$
+ echo $PPID
+
+<name of the program> $ run the program in background
+bg also make to run the program in background
+fg (jobname) run the process in foreground
+top listed all process with everything 
+[1] is job number 
+jobs  listing alll jobs that running (job is special type of process) 
+
+
+kiling proccess
+
+fg %1 - killing the process (ctrl + C)
+ctl+Z pauzed the proccess 
+kill 5049 (this PID) kill the process
+kill -STOP 1234(pid) will pauze the process
+kill -CONT 1234(pid) will kill the process

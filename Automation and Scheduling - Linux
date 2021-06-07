@@ -1,0 +1,46 @@
+*** Creating bash scripts***
+#!/bin/bash
+
+- This is the first line of the script above. The hash exclamation mark ( #! ) character sequence is referred to as the Shebang. 
+Following it is the path to the interpreter (or program) that should be used to run (or interpret) the rest of the lines in the text file. 
+If we wanted to make python script we write the path for ex . #!/user/bin/python3
+Every command that we will put in that script will be executed for ex. echo Hello world
+When we executed with command bash script.sh it will show hello world 
+
+--ex. of making bash script 
+#!/bin/bash
+mkdir ~/Desktop/magic
+cd ~/Desktop/magic 
+touch file{1..100}
+ls -lh ~/Desktop/magic > ~/Desktop/magic.log
+
+
+ex.of script to make backups
+tar -czvf backup.tar.gz ~/{Documents,Downloads,Pictures,Desktop} -this will zip everything on the Desktop 
+
+we could keep this backup file in bin directory .we move from Desktop with command mv ~/Desktop/backup.sh ~/bin/
+to make it to run as a script we execute command   chmod +x backup.sh
+
+To read as a script we write in terminal 
+nano . bashrc 
+then at the end of the file we write : 
+PATH="$PATH:$HOME/bin"
+and after this everytime we want to execute the command we only write the name of the backup file
+
+ex. with looping 
+for ((i = 0 ; i < 100 ; i++)); do
+  echo $i
+done
+
+***Scheduling automating ***
+We open to schedule the automation with command:
+crontab -e 
+then we schedule  the command 
+minutes     hours     day of the month       month              day of the week                            command 
+*           *               *                  *                     *
+1            2            10                  JAN (12)         can have no. 0-6 ( 0-Mon 6 is Sund)          echo "Hello" >> ~/Desktop/hello.txy
+(ovoj primer e deka na 10 januari sekoj den vo dva casot i edna minuta ke se izvrsuva ovaa scripta 
+if we wrote only _date_ it will show the date when it is executed 
+
+also as command we can write bash ~/bin/backup  with this we give the path which script to be executed 
+https://crontab.guru/   simple editor for cron schedule expressions by Cronitor

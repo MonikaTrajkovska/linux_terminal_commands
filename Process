@@ -53,3 +53,8 @@ vmstat ----provides general information about processes, memory, paging, block I
 
 htop /top is the same command 
 sudo dmidecode    ---find out hardware information about the installed RAM
+
+disk space 
+df  check disk space 
+df –h  Display Usage in Megabytes and Gigabytes
+df –h /dev/sda2  Display a Specific File System

@@ -93,7 +93,8 @@ unzip -l  file.zip to unzip files
 sudo apt-get install java - we install java or other software
 to run that(shell script) we use
 bash java.sh
-
+apt-cache show <name of the package> gives detailed  info about the package 
+apt-cache search <name of server/package> gives search about that in the cache  ( raboti i bez net connection zosto e cache) 
 ****Users ***
 sudo useradd ading user ex sudo useradd Eva 
 sudo userdel name-deliting user

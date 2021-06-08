@@ -58,3 +58,4 @@ disk space
 df  check disk space 
 df –h  Display Usage in Megabytes and Gigabytes
 df –h /dev/sda2  Display a Specific File System
+du command displays disk usage. This tool can display disk usage for individual directories 

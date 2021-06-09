@@ -1,0 +1,22 @@
+sudo systemctl poweroff  = shutting down the machine
+sudo systemctl reboot = roobting your machine 
+sudo shutdown -r 2 = shutting in 2 min 
+systemctl enable name.service  =enable service
+systemctl disable name.service = disable serivce
+systemctl status name.service =check the status of the service
+systemctl list-unit-files --type service =list all services and checks if the are enabled 
+systemctl start name.service =to run the service 
+systemctl stop name.service =to stop run the service 
+
+targets & runlevels = the state in which OS is running ( target units allow you to start a system with only the services that are required for a specific purpose)
+sudo systemctl get-default = gives the dafault system 
+sudo systemctl set-default multi-user - will change the default system to multi-user (ex.)
+
+**target levels 
+0	poweroff.target	= This run level/target is used by systemd to power-off or halt the system
+1	rescue.target	= This run level/target is used by systemd to boot the system in rescue or recovery mode. It is very helpful if some goes wrong you can change the configuration in that mode
+2	multi-user.target =	This run level/target is used by systemd to boot system into multi-user environment so user can work in parallel
+3	multi-user.target	= =/=
+4	multi-user.target	 = =/=
+5	graphical.target	= This run level/target is used by systemd to boot system into multi-user graphical environment so user can work in parallel in graphical mode
+6	reboot.target	= This run level/target is used by systemd to reboot the system

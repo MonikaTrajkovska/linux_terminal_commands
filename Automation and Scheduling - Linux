@@ -1,3 +1,136 @@
+article : https://linuxhint.com/3hr_bash_tutorial/#4
+
+cat /etc/shells = show all bash scripts that we have
+which bash = gives info about the path of the bash , we write this path in every script 
+chmod +x backup.sh = to make it to run as a script we execute command  (we make it exucutable)
+./nameofthescript == to run the script 
+if in the script we make at the end command      < file.txt the script will be executed in that file 
+cat < file.txt = will chanege the text form terminal in the script
+cat << file.txt = will append other text in the script 
+
+
+*** comments**
+#this is comment ( with # we make one line comment)
+
+: ' 
+this is multiline comment
+this is multilinecomment 
+                        '
+** conditional statements**
+
+ex. with if statements
+-eq == equal to
+-ne  == not equal to
+-gt ==greater than 
+-o ===or
+|| == or
+elif ===else if 
+
+*****
+count=10
+if [ $count -eq 10 ]
+then 
+echo "The condition is true"
+else 
+echo "The condition is false"
+fi
+
+*** if we use < 
+ then the function will be with bracekts ()
+ ex. if (( $count < 10 ))
+
+*** loops example*** 
+ number=1
+ while [ $number -lt 10 ]
+ do
+ echo "$number"
+number=$(( number+1))
+done
+--also we have until loop (insead of while) the difference is that until will run until it is true
+
+ex. with looping 
+for ((i = 0 ; i < 100 ; i++)); do
+  echo $i
+done
+
+
+ex.
+
+ for (( i=0; i<=10; i++ ))
+ do
+    if [ $i -eq 3 ] || [  $i -eq 7 ]
+    then
+    continue
+    fi
+    echo $i
+ done
+ 
+ ** script input***
+ 
+ echo $1 $2 $3    this are inputs and will be executed in the terminal when we run the script we write ex. ./script.sh BMW MERCEDES TOYOTA 
+                                                                                                                        $1     $2      $3
+                                                                                                                        
+  args=("$@") #you can also specify the array size here (ex. args=("$3" because @ means no limited arguments)
+ echo ${args[0]} ${args[1]} ${args[2]}  this are index arguments are written in terminal  
+ 
+ ** read file**
+ stdn == is used to read file ex with while loop 
+ 
+while read line
+do
+    echo "$line"   
+done < "${1:-/dev/stdin}"
+
+
+Then in terminal we write ./script.sh nameofthefile
+ 
+ **script output**
+ 
+ ls -al 1>file1.txt 2>file2.txt   this is example for standard output and standard error in file1.txt will copy everything from that directory ,while in file2 the errors
+ ls -al >file1.txt 2>&1  this is ex. for single file for storing standard output and standard output.
+ 
+ 
+ *** Pipes*** send output from one script to other 
+ 
+ ex. this is script.sh
+MESSAGE="Hello LinuxHint Audience"
+export MESSAGE
+./secondScript.sh
+= the message from script.sh will be send in secondScrip.sh
+ 
+ ** numbers and arithmetic**
+ ex. 
+n1=4
+n2=20
+echo $((  n1 + n2 )) 
+echo $(expr $n1 + $n2 )   when use expr we need to put $ to specify that is var
+
+** declare command**
+declare -p   = show all var in the system
+
+ex. for restricting var only to be read
+declare -r pwdfile=/etc/passwd
+echo $pwdfile
+pwdfile=/etc/abc.txt
+ 
+ ***arrays**
+ ex.
+ car=('BMW' 'TOYOTA' 'HONDA')
+echo "${car[@]}"   = @ print all from the array
+echo "${!car[@]}"    = this command print all indexes from the array 
+echo "${#car[@]}"    =printing number of values
+unset var[2]         will delete that value from the array
+car[2]='MERCEDES'    this will put value MERCEDES on index 2 in the array
+
+
+*functions**
+ex.
+function funcName()
+{
+    echo "this is new function"
+}
+funcName
+
 *** Creating bash scripts***
 #!/bin/bash
 
@@ -19,7 +152,7 @@ ex.of script to make backups
 tar -czvf backup.tar.gz ~/{Documents,Downloads,Pictures,Desktop} -this will zip everything on the Desktop 
 
 we could keep this backup file in bin directory .we move from Desktop with command mv ~/Desktop/backup.sh ~/bin/
-to make it to run as a script we execute command   chmod +x backup.sh
+
 
 To read as a script we write in terminal 
 nano . bashrc 
@@ -27,10 +160,7 @@ then at the end of the file we write :
 PATH="$PATH:$HOME/bin"
 and after this everytime we want to execute the command we only write the name of the backup file
 
-ex. with looping 
-for ((i = 0 ; i < 100 ; i++)); do
-  echo $i
-done
+
 
 ***Scheduling automating ***
 We open to schedule the automation with command:

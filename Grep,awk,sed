@@ -1,1 +1,25 @@
 1. Grep command  (‘global regular expression print’. This command is used to search a pattern within a file by processing the text line by line.)
+ex. This will wirst search the file than it will search in the file specific word that we will write
+echo "enter a filename to search text from"
+read fileName
+if [[ -f $fileName ]]
+then
+    echo "enter the text to search"
+    read grepvar
+    grep -i -n -c -v $grepvar $fileName   (-i is for case sensitive , -c is how many times it show, -v shows all the lines without that specific word
+else
+    echo "$fileName doesn't exist"
+fi
+
+2.awk Command
+
+ex. to print evrything from the file 
+
+echo "enter a filename to print from awk"
+read fileName
+if [[ -f $fileName ]]
+then
+    awk '{print}' $fileName
+else
+    echo "$fileName doesn't exist"
+fi

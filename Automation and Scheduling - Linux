@@ -153,8 +153,21 @@ All steps are in the article
  16. Curl in script 
  Curls are used to get or send any data files that can have URL syntax
  sudo apt install curl === first we install the curl command 
- 
- 
+url="http://www.ovh.net/files/1Mb.dat"
+curl ${url} -O       this -O means that the file will be downloaded with original name 
+curl ${url} -o NewFileDownload     -o NewFileDownloaded is the name that u want that file to have
+curl -I ${url}  checks if it si the right file downloade 
+
+17.Proffesional menus
+ex.select loop and how you can wait for the input
+select car in BMW MERCEDES TESLA ROVER TOYOTA
+do
+    echo "you have selected $car"
+done
+
+18. Wait for filesystem using inotify (how to wait for a file and make changes in that file using inotify)
+ sudo apt install inotify-tools   = to install 
+ Inotifywait -m /temp/NewFolder    = to check if this folder exist 
  
 *** Creating bash scripts***
 #!/bin/bash

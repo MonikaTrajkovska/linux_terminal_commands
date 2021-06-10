@@ -131,6 +131,31 @@ function funcName()
 }
 funcName
 
+
+***files/directories 
+mkdir -p filder2 =it creates foldder
+
+ex.
+echo "enter directory name to check"
+read direct
+
+if [ -d "$direct" ]                        this -d check if directory exist
+then                                        -f check if file exist
+    echo "$direct exists"
+else
+    echo "$direct doesn't exist"
+fi
+
+15. Sending email via script
+ sudo apt install ssmtp        = first we install it 
+All steps are in the article 
+ 
+ 16. Curl in script 
+ Curls are used to get or send any data files that can have URL syntax
+ sudo apt install curl === first we install the curl command 
+ 
+ 
+ 
 *** Creating bash scripts***
 #!/bin/bash
 

@@ -19,7 +19,20 @@ echo "enter a filename to print from awk"
 read fileName
 if [[ -f $fileName ]]
 then
-    awk '{print}' $fileName
+    awk '{print}' $fileName         //// awk '/Linux/ {print}' $fileName      this command will print specific word   awk '/Linux/ {print $2}' $fileName will print second word in the line
+else
+    echo "$fileName doesn't exist"
+fi
+
+
+3.sed (The sed command stands for stream editor, performs editing operations on text coming from standard input or a file. sed edits line-by-line and in a non-interactive way. )
+ex.
+echo "enter filename to substitute using sed"
+read fileName
+if [[ -f $fileName ]]
+then
+    cat filegrep.txt | sed 's/i/I/g'   this will change all i letters in bigger one (I)   cat filegrep.txt | sed 's/i/I/g' > newfile.txt   (all changes of the file will be stored in newFile.txt)
+                            's/Linux/Unix/g    this will change word Linux to unix 
 else
     echo "$fileName doesn't exist"
 fi

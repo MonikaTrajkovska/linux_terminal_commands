@@ -1,0 +1,6 @@
+they are stored in /var/log
+cat auth.log -listing all authentication logs
+cat auth.log | grep "Failed" will list all failed attempts to login
+cat auth.log | grep "Invalid" | cut -d " " -f 11 | sort |  this will give all failed attemnt to login sorted , and uniq means not repeated 
+| wc -l  will tell how many lines we have (for ex. if the ip address is line 16 we write -f 16 and it will listed all ip adress 
+cat auth.log < ~/log.txt   this will put all logs into log.txt

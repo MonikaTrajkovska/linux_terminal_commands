@@ -1,0 +1,33 @@
+ping - if net is not working or web browser ,to see if there is packet lost
+ex. ping goolge.com
+ifconfig - configuring, controlling, and querying TCP/IP network interface parameters (lo local , list)
+tcpdump - nalyze packets that go in /out in our comm 
+sudo tcpdump -A - the packets that we receive 
+sudo tcpdump -i nameof the machine - will give packets about that machine
+sudo tcpdump -XX nameofmachine - will list in x form the packets
+sudo tcpdump -i lo portnumber -will capture the packets from specific ports
+netstat -network statistics 
+netstat -nr - This parameter displays active TCP connections.  Addresses and port numbers are expressed numerically without attempting to determine the host name.(active connections) 
+netasta -i - kernel display interface
+ netstat -ta     - active sockets, with domains
+ netstat -tan active socekts with ip address 
+ 
+ host file -used to resolve hosts names before DNS
+ sudo nano /etc/hosts tamu se naoga host fajlot 
+ when we edit host fajl we enter ip address and domain name
+ host name - name of the machine 
+ traceroute 
+ traceroute domainname -this is example how to trace certain domain 
+ 
+ 
+  nmap -network mapper
+  nmap ipaddres.no---   how to scan specific ip address
+  nmap -v -give more info (-v is for verbose)
+  namap -iL ~/networks.txt will scan all networks that we have in that file 
+  
+  SSH 
+  ssh-keygen - will generate public and private key 
+  ls .ssh will list the key 
+  cat ./ssh/id_rsa.pub   wil show the key 
+  
+               

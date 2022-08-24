@@ -9,11 +9,12 @@ sudo tcpdump -i nameof the machine - will give packets about that machine
 sudo tcpdump -XX nameofmachine - will list in x form the packets
 sudo tcpdump -i lo portnumber -will capture the packets from specific ports
 netstat -network statistics 
-netstat -nr - This parameter displays active TCP connections.  Addresses and port numbers are expressed numerically without attempting to determine the host name.(active connections) 
+netstat -tulnp- Show listening ports and processes
+netstat -nr - Show the routing table.This parameter displays active TCP connections.  Addresses and port numbers are expressed numerically without attempting to determine the host name.(active connections) 
 netasta -i - kernel display interface
  netstat -ta     - active sockets, with domains
  netstat -tan active socekts with ip address 
- 
+ du (check disc usage)
  host file -used to resolve hosts names before DNS
  sudo nano /etc/hosts tamu se naoga host fajlot 
  when we edit host fajl we enter ip address and domain name

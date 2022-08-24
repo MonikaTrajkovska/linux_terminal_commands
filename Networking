@@ -1,7 +1,9 @@
 ping - if net is not working or web browser ,to see if there is packet lost
 ex. ping goolge.com
-ifconfig - configuring, controlling, and querying TCP/IP network interface parameters (lo local , list)
-tcpdump - nalyze packets that go in /out in our comm 
+ifconfig - configuring, controlling, and querying TCP/IP network interface parameters (lo local , list)-show ip address
+sudo dhclient enp03 -v -specify ip address automatically 
+route -n -shows how traffic route to outside world 
+tcpdump - analyze packets that go in /out in our comp 
 sudo tcpdump -A - the packets that we receive 
 sudo tcpdump -i nameof the machine - will give packets about that machine
 sudo tcpdump -XX nameofmachine - will list in x form the packets
@@ -16,7 +18,7 @@ netasta -i - kernel display interface
  sudo nano /etc/hosts tamu se naoga host fajlot 
  when we edit host fajl we enter ip address and domain name
  host name - name of the machine 
- traceroute 
+ traceroute-route the packets betwwen your machine and machine that you want to connect 
  traceroute domainname -this is example how to trace certain domain 
  
  
